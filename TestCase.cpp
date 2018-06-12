@@ -1,3 +1,11 @@
+#include "TestCase.hpp"
+#include <ostream>
+using namespace std;
+
+
+
+
+
 
 
 void TestCase::to_os(string text)
@@ -14,4 +22,6 @@ void TestCase::print()
 
 TestCase::~TestCase()
 {
+	delete this;
+
 }
