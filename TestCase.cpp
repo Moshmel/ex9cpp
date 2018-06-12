@@ -20,8 +20,3 @@ void TestCase::print()
 	_os << to_string(_suc+_fail) << " total." << endl << "---" << endl;
 }
 
-TestCase::~TestCase()
-{
-	delete this;
-
-}
