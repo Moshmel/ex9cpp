@@ -33,7 +33,7 @@ public:
 	TestCase& check_output(T x, string str);
 
 	void print();
-	~TestCase();
+
 
 
 };
@@ -66,7 +66,7 @@ inline TestCase & TestCase::check_different(T a, T b)
 		ostringstream s1, s2;
 		s1 << a;
 		s2 << b;
-		string s = "error  " + s2.str() + "== " + s1.str() + " ";
+		string s = "error  " + s2.str() + "are equal " + s1.str() + " !";
 		to_os(s);
 	}
 	else _suc++;
@@ -84,7 +84,7 @@ inline TestCase & TestCase::check_function(T1 fu, T2 x, T3 y)
 		ostringstream s1, s2;
 		s1 << temp;
 		s2 << y;
-		string s = "Function should return  " + s2.str() + "instead of  " + s1.str() + "!";
+		string s = "Function should return  " + s2.str() + " instead of  " + s1.str() + "!";
 		to_os(s);
 	}
 
