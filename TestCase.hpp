@@ -11,7 +11,7 @@ class TestCase
 	string _str;
 	void to_os(string text);
 protected:
-	ostream& _os;
+	ostream & _os;
 public:
 
 	TestCase(string str, ostream& os) :_str(str), _os(os) {
@@ -31,7 +31,7 @@ public:
 
 	template <typename T>
 	TestCase& check_output(T x, string str);
-	
+
 	void print();
 	~TestCase();
 
@@ -42,18 +42,18 @@ template<typename T>
 inline TestCase & TestCase::check_equal(T a, T b)
 {
 	{
-		
+
 		if (a != b)
 		{
 			_fail++;
 			ostringstream s1, s2;
 			s1 << a;
 			s2 << b;
-			string s = "error  " +s2.str()+"is not the same as "+s1.str()+" ==";
+			string s = "error  " + s2.str() + "is not the same as " + s1.str();
 			to_os(s);
 		}
 		else _suc++;
-		
+
 		return*this;
 	}
 }
@@ -64,9 +64,9 @@ inline TestCase & TestCase::check_different(T a, T b)
 	if (a == b) {
 		_fail++;
 		ostringstream s1, s2;
-			s1 << a;
-			s2 << b;
-			string s = "error  " +s2.str()+"== "+s1.str()+" ";
+		s1 << a;
+		s2 << b;
+		string s = "error  " + s2.str() + "== " + s1.str() + " ";
 		to_os(s);
 	}
 	else _suc++;
@@ -79,13 +79,14 @@ inline TestCase & TestCase::check_function(T1 fu, T2 x, T3 y)
 {
 	T2 temp = fu(x);
 	if (temp == y)  _suc++;
-	else { _fail++;
-			ostringstream s1, s2;
-			s1 << temp;
-			s2 << y;
-		  string s= "Function should return  " +s2.str() +"instead of  " +s1.str()+"!";
-		  to_os(s);
-		 }
+	else {
+		_fail++;
+		ostringstream s1, s2;
+		s1 << temp;
+		s2 << y;
+		string s = "Function should return  " + s2.str() + "instead of  " + s1.str() + "!";
+		to_os(s);
+	}
 
 	return *this;
 }
