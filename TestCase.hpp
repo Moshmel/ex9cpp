@@ -46,8 +46,11 @@ inline TestCase & TestCase::check_equal(T a, T b)
 		if (a != b)
 		{
 			_fail++;
-			string str = "error the 2 arguments are not equal";
-			to_os(str);
+			ostringstream s1, s2;
+			s1 << a;
+			s2 << b;
+			string s = "error  " +s2.str()+"is not the same as "+s1.str()+" ==";
+			to_os(s);
 		}
 		else _suc++;
 		
@@ -60,7 +63,10 @@ inline TestCase & TestCase::check_different(T a, T b)
 {
 	if (a == b) {
 		_fail++;
-		string s = "error the 2 arguments are not the same";
+		ostringstream s1, s2;
+			s1 << a;
+			s2 << b;
+			string s = "error  " +s2.str()+"== "+s1.str()+" ";
 		to_os(s);
 	}
 	else _suc++;
