@@ -10,7 +10,7 @@ using namespace std;
 
 void TestCase::to_os(string text)
 {
-	_os << _str << ":Failure in test #" << _suc + _fail << " : " << text << endl;
+	_os << _str << ":Failure in test #" << _suc + _fail << " : " << text <<"!"<<endl;
 }
 
 void TestCase::print()
